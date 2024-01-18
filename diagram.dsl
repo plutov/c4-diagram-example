@@ -8,8 +8,8 @@ workspace {
         calendarSystem = softwareSystem "Calendar System" "Calendly" "External"
 
         taskManagementSystem  = softwareSystem "Task Management System"{
-            webContainer = container "User web UI" "React"
-            adminContainer = container "Admin web UI" "React"
+            webContainer = container "User Web UI" "React"
+            adminContainer = container "Admin Web UI" "React"
             dbContainer = container "Database" "PostgreSQL"
             apiContainer = container "API" "Go" {
                 authComp = component "Authentication"
