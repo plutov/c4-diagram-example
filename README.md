@@ -6,7 +6,12 @@ It is not showing all the features of C4 or DSL, but serves as a starting point.
 
 # Github Action
 
-There isa workflow as part of this repository that generates static page and publishes it to Github Pages.
+There is a workflow as part of this repository that generates static page and publishes it to Github Pages.
+
+There are few other options for viewing the diagram:
+- Upload to Structurizr
+- Render into Mermaid format that Github can display
+- Use PlantUML viewer
 
 # Resources
 

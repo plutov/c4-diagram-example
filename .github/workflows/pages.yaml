@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Create site
         run: |
-          /opt/structurizr-site-generatr/bin/structurizr-site-generatr generate-site -w ml_platform_architecture.dsl
+          /opt/structurizr-site-generatr/bin/structurizr-site-generatr generate-site -w diagram.dsl
       - uses: actions/upload-artifact@v3
         with:
           name: website
