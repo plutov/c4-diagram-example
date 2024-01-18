@@ -8,8 +8,8 @@ workspace {
         calendarSystem = softwareSystem "Calendar System" "Calendly" "External"
 
         taskManagementSystem  = softwareSystem "Task Management System"{
-            webContainer = container "User Web UI" "React"
-            adminContainer = container "Admin Web UI" "React"
+            webContainer = container "User Web UI" "Frontend"
+            adminContainer = container "Admin Web UI" "Frontend"
             dbContainer = container "Database" "PostgreSQL"
             apiContainer = container "API" "Go" {
                 authComp = component "Authentication"
@@ -49,6 +49,15 @@ workspace {
             apiContainer -> webContainer "Returns JWT token"
             webContainer -> customer "Persists JWT token in local storage"
             autolayout
+        }
+
+        styles {
+            element "External" {
+                background #cccccc
+            }
+            element "Frontend" {
+                shape WebBrowser
+            }
         }
     }
 }

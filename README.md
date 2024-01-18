@@ -6,7 +6,7 @@ This repository is an example of creating Software architecture diagrams using t
 
 It is not showing all the features of C4 or DSL, but serves as a starting point.
 
-`diagram.dsl` describes a simple task management system. This example doesn't contain the Code part.
+`diagram.dsl` describes a simple task management system. This example doesn't contain the Code layer.
 
 # Github Action
 
