@@ -44,7 +44,7 @@ workspace {
         }
 
         # Dynamic diagram can be used to showcase a specific feature or process
-        dynamic taskManagementSystem "Login flow" {
+        dynamic taskManagementSystem "LoginFlow" {
             webContainer -> apiContainer "Sends login request with username and password"
             apiContainer -> webContainer "Returns JWT token"
             webContainer -> customer "Persists JWT token in local storage"
