@@ -43,11 +43,6 @@ workspace {
             autolayout
         }
 
-        component taskManagementSystem {
-            include *
-            autolayout
-        }
-
         # Dynamic diagram can be used to showcase a specific feature or process
         dynamic taskManagementSystem "Login flow" {
             webContainer -> apiContainer "Sends login request with username and password"

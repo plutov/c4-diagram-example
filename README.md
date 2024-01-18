@@ -1,5 +1,7 @@
 # Software Architecture Diagram example using C4 model
 
+[view diagram]()
+
 This repository is an example of creating Software architecture diagrams using the C4 model.
 
 It is not showing all the features of C4 or DSL, but serves as a starting point.
