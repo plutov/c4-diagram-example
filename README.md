@@ -19,5 +19,6 @@ There are few other options for viewing the diagram:
 
 # Resources
 
+- [C4 Model](https://c4model.com/)
 - [DSL Language Reference](https://docs.structurizr.com/dsl/language)
 - [C4 DSL Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=systemticks.c4-dsl-extension)

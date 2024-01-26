@@ -1,16 +1,16 @@
 workspace {
 
     model {
-        customer = person "Customer"
-        admin = person "Admin User"
+        customer = person "Customer" "" "person"
+        admin = person "Admin User" "" "person"
 
-        emailSystem = softwareSystem "Email System" "Mailgun" "External"
-        calendarSystem = softwareSystem "Calendar System" "Calendly" "External"
+        emailSystem = softwareSystem "Email System" "Mailgun" "external"
+        calendarSystem = softwareSystem "Calendar System" "Calendly" "external"
 
         taskManagementSystem  = softwareSystem "Task Management System"{
-            webContainer = container "User Web UI" "Frontend"
-            adminContainer = container "Admin Web UI" "Frontend"
-            dbContainer = container "Database" "PostgreSQL"
+            webContainer = container "User Web UI" "" "" "frontend"
+            adminContainer = container "Admin Web UI" "" "" "frontend"
+            dbContainer = container "Database" "PostgreSQL" "" "database"
             apiContainer = container "API" "Go" {
                 authComp = component "Authentication"
                 crudComp = component "CRUD"
@@ -20,9 +20,6 @@ workspace {
         # Relationships between people and software systems
         customer -> webContainer "Manages tasks"
         admin -> adminContainer "Manages users"
-        emailSystem -> customer "Delivers emails"
-        emailSystem -> admin "Delivers emails"
-        calendarSystem -> customer "Creates tasks in customer's Calendar"
         apiContainer -> emailSystem "Sends emails"
         apiContainer -> calendarSystem "Creates tasks in Calendar"
 
@@ -30,6 +27,11 @@ workspace {
         webContainer -> apiContainer "Uses"
         adminContainer -> apiContainer "Uses"
         apiContainer -> dbContainer "Persists data"
+
+        # Relationships to/from components
+        crudComp -> dbContainer "Reads from and writes to"
+        webContainer -> authComp "Authenticates using"
+        adminContainer -> authComp "Authenticates using"
     }
 
     views {
@@ -43,6 +45,11 @@ workspace {
             autolayout
         }
 
+        component apiContainer {
+            include *
+            autolayout
+        }
+
         # Dynamic diagram can be used to showcase a specific feature or process
         dynamic taskManagementSystem "LoginFlow" {
             webContainer -> apiContainer "Sends login request with username and password"
@@ -52,11 +59,27 @@ workspace {
         }
 
         styles {
-            element "External" {
-                background #cccccc
+            element "Software System" {
+                background #1168bd
+                color #ffffff
             }
-            element "Frontend" {
+
+            element "person" {
+                shape Person
+            }
+
+            element "external" {
+                background #eeeeee
+                border dashed
+                color #000000
+            }
+
+            element "frontend" {
                 shape WebBrowser
+            }
+
+            element "database" {
+                shape Cylinder
             }
         }
     }
